@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pushd . > dev/null
+pushd . > /dev/null
 echo "-----------------------"
 echo "Backing up dot files..."
 echo "-----------------------"
@@ -24,4 +24,4 @@ echo ""
 echo "-----------------"
 echo "Backup Complete!"
 echo ""
-popd > dev/null
+popd > /dev/null
