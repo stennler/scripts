@@ -1,0 +1,5 @@
+#!/bin/sh
+pushd . > /dev/null
+cd ~/repos/config
+~/repos/config/setup
+popd > /dev/null
