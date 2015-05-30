@@ -4,7 +4,6 @@ pushd . > /dev/null
 echo "-----------------------"
 echo "Backing up dot files..."
 echo "-----------------------"
-echo ""
 cd ~/repos/config
 git add :/
 git commit -m "Running backup script..."
@@ -14,14 +13,12 @@ echo ""
 echo "---------------------"
 echo "Backing up scripts..."
 echo "---------------------"
-echo ""
 cd ~/repos/scripts
 git add :/
 git commit -m "Running backup script..."
 git push origin master
 
 echo ""
-echo "-----------------"
 echo "Backup Complete!"
 echo ""
 popd > /dev/null
