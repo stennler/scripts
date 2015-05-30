@@ -1,0 +1,9 @@
+#!/bin/sh
+# Create new branch
+branchName=
+if [ $# -eq 1 ]
+    then
+        branchName=$1
+fi
+
+git checkout -b $branchName

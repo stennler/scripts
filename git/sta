@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ $# -eq 1 ]
+    then
+        choice=$1
+        pchar=p
+        git log --oneline -40 | sed -n $choice$pchar | awk '{ print $1 }' | xargs git log --stat -1 
+fi
+
+

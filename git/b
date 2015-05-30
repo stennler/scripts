@@ -1,0 +1,15 @@
+#!/bin/sh
+# Show git branches in this repo.
+# If passed a number, switch to that correspoding branch
+if [ $# -eq 0 ]
+    then
+        git branch --color=always | nl
+fi
+if [ $# -eq 1 ]
+    then
+        choice=$1
+        pchar=p
+        git branch | sed -n $choice$pchar | sed 's/\*//g' | awk '{ print $1 }' | xargs git checkout 
+fi
+
+

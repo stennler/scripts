@@ -1,0 +1,10 @@
+#!/bin/sh
+# New Code Collab Review
+if [ $# -eq 1 ]
+    then
+        branch=$1
+        ccollab addgitdiffs new origin/trunk...origin/$branch -- '*.as' '*.json' '*.properties'
+fi
+
+
+

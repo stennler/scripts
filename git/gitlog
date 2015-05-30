@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# gitlog: Pretty prints a git log.
+
+num=
+branch=
+
+if [ $# -eq 1 ]
+    then
+        num=$1
+fi
+
+if [ $# -eq 2 ]
+    then
+        num=$1
+        branch=$2
+        git branch | awk -v "mybranch=$branch" '{ if( $1 == "*") print "\n     Branch: \033[1;35m",  mybranch, "\033[0m \n" }' 
+    else
+        git branch | awk '{ if( $1 == "*") print "\n     Branch: \033[1;35m", $2, "\033[0m \n" }' 
+fi
+
+if [ $# -eq 0 ]
+    then
+        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset %C(cyan)- %C(reset)%s %C(yellow)%d%Creset" --abbrev-commit --date=relative --color=always | nl | less
+    else
+        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset %C(cyan)- %C(reset)%s %C(yellow)%d%Creset" --abbrev-commit --date=relative $num --color=always $branch | nl
+fi
+
+echo "\n"

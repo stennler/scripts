@@ -1,0 +1,11 @@
+#!/bin/sh
+# Update code collab review
+if [ $# -eq 2 ]
+    then
+        review=$1
+        branch=$2
+        ccollab addgitdiffs $review origin/trunk...origin/$branch -- '*.as' '*.json' '*.properties'
+fi
+
+
+

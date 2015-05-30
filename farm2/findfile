@@ -1,0 +1,14 @@
+#!/bin/sh
+
+function ff() {
+if [ $# -eq 1 ]
+then
+    find ~/repos/farm2 -iname "*$1*" | nl
+elif [ $# -eq 2 ]
+then
+    line=$2
+    cmd="$(find ~/repos/farm2 -iname "*$1*" | sed -n "$line p")"
+    cmd2="$(dirname $cmd)"
+    cd $cmd2
+fi
+} 

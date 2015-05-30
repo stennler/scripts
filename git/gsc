@@ -1,0 +1,10 @@
+#!/bin/sh
+# Git show clean 
+if [ $# -eq 1 ]
+    then
+        choice=$1
+        pchar=p
+        git log --oneline -40 | grep -v Merge | sed -n $choice$pchar | awk '{ print $1 }' | xargs git show
+fi
+
+
