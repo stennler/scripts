@@ -6,8 +6,10 @@ echo "Backing up dot files..."
 echo "-----------------------"
 cd ~/repos/config
 git add :/
+git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 git commit -m "Running backup script..."
 git push origin master
+
 
 echo ""
 echo "---------------------"
@@ -15,6 +17,7 @@ echo "Backing up scripts..."
 echo "---------------------"
 cd ~/repos/scripts
 git add :/
+git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 git commit -m "Running backup script..."
 git push origin master
 
