@@ -1,17 +1,23 @@
 #!/bin/sh
 
 pushd .
+echo ""
 echo "Backing up dot files..."
+echo ""
 cd ~/repos/config
 git add :/
 git commit -m "Running backup script..."
 git push origin master
 
+echo ""
 echo "Backing up scripts..."
+echo ""
 cd ~/repos/scripts
 git add :/
 git commit -m "Running backup script..."
 git push origin master
 
+echo ""
 echo "Backup Complete!"
+echo ""
 popd
