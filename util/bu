@@ -1,9 +1,9 @@
 #!/bin/sh
 
 pushd . > /dev/null
-echo "-----------------------"
-echo "Backing up dot files..."
-echo "-----------------------"
+echo "--------------------------"
+echo "Backing up config files..."
+echo "--------------------------"
 cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
