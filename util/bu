@@ -8,7 +8,7 @@ cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 echo ""
-git commit -m "Running backup script..."
+git commit -m "[Backup Script]"
 git push origin master
 
 
@@ -20,7 +20,7 @@ cd ~/repos/scripts
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 echo ""
-git commit -m "Running backup script..."
+git commit -m "[Backup Script]"
 git push origin master
 
 echo ""
