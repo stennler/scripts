@@ -2,7 +2,7 @@
 # Prints only my commit logs
 if [ $# -eq 0 ]
     then
-        gitlogmine -15
+        gitlogmine | less
 fi
 
 if [ $# -eq 1 ]

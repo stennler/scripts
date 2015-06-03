@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# gitlogmine_nocolor: Pretty prints a git log of my commits.
+
+git --no-pager log --author="leischman"  --oneline --abbrev-commit --date=relative --color=never  
+
+echo "\n"
