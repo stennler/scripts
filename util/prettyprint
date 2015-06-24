@@ -1,0 +1,14 @@
+#!/usr/local/bin/python3
+import json
+import sys
+
+if (len(sys.argv) > 1):
+    with open(sys.argv[1], 'r') as handle:
+            parsed = json.load(handle)
+else:
+    parsed = ""
+    for line in sys.stdin:
+        parsed += line
+    parsed = json.loads(parsed)
+
+print (json.dumps(parsed, indent=4, sort_keys=True))
