@@ -1,5 +1,11 @@
 #!/bin/sh
 
+commitMessage="[Backup Script]"
+if [ $# -eq 1 ]
+then
+    commitMessage="[Backup Script] $1"
+fi
+
 pushd . > /dev/null
 echo "--------------------------"
 echo "Backing up config files..."
@@ -8,7 +14,7 @@ cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 echo ""
-git commit -m "[Backup Script]"
+git commit -m "$commitMessage"
 git push origin master
 
 
@@ -20,7 +26,7 @@ cd ~/repos/scripts
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
 echo ""
-git commit -m "[Backup Script]"
+git commit -m "$commitMessage"
 git push origin master
 
 echo ""
