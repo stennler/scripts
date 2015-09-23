@@ -1,5 +1,9 @@
 #!/bin/sh
 # See git stats for gitlog commit number
+if [ $# -eq 0 ]
+    then
+        git --no-pager diff --stat
+fi
 if [ $# -eq 1 ]
     then
         choice=$1
