@@ -3,7 +3,8 @@
 if [ $# -eq 1 ]
     then
         carrot=^
-        git difftool $1$carrot $1
+        git  diff $1$carrot $1
+        #git difftool $1$carrot $1
 fi
 
 
