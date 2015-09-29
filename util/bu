@@ -9,9 +9,9 @@ then
 fi
 
 pushd . > /dev/null
-echo "${Purple}--------------------------${Reset}"
-echo "${Purple}Backing up config files...${Reset}"
-echo "${Purple}--------------------------${Reset}"
+echo "${Cyan}--------------------------${Reset}"
+echo "${Cyan}Backing up config files...${Reset}"
+echo "${Cyan}--------------------------${Reset}"
 cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
@@ -21,9 +21,9 @@ git push origin master
 
 
 echo ""
-echo "${Purple}---------------------${Reset}"
-echo "${Purple}Backing up scripts...${Reset}"
-echo "${Purple}---------------------${Reset}"
+echo "${Cyan}---------------------${Reset}"
+echo "${Cyan}Backing up scripts...${Reset}"
+echo "${Cyan}---------------------${Reset}"
 cd ~/repos/scripts
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
