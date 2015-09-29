@@ -7,9 +7,9 @@ then
 fi
 
 pushd . > /dev/null
-echo "--------------------------"
-echo "Backing up config files..."
-echo "--------------------------"
+echo "\033[0;35m--------------------------"
+echo "\033[0;35mBacking up config files..."
+echo "\033[0;35m--------------------------"
 cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
@@ -19,9 +19,9 @@ git push origin master
 
 
 echo ""
-echo "---------------------"
-echo "Backing up scripts..."
-echo "---------------------"
+echo "\033[0;35m---------------------"
+echo "\033[0;35mBacking up scripts..."
+echo "\033[0;35m---------------------"
 cd ~/repos/scripts
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
