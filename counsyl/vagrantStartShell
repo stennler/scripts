@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#source ~/repos/website/vendor/venv/bin/activate
+ls ~/repos/website/vendor/venv/bin
