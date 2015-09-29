@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 commitMessage="[Backup Script]"
 if [ $# -eq 1 ]
