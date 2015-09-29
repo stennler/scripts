@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 source ~/repos/scripts/util/exportColors
 
