@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global find file
-function ff() {
+function fff() {
 if [ $# -eq 1 ]
 then
     find . -iname "*$1*" | grep --color=always '[^\/]*$' | nl
@@ -12,14 +12,14 @@ then
 fi
 } 
 
-# Find file in Farm 2 repo
-function fz() {
+# Find file in Counsyl repo
+function ff() {
 if [ $# -eq 1 ]
 then
-    find ~/repos/website/counsyl/product/ -iname "*$1*" | grep --color=always '[^\/]*$' | nl
+    find ~/repos/website/counsyl/product/ -iname "*$1*" | grep -v .pyc | sed -e 's/\/home\/zfleischman\/repos\/website\/counsyl\/product//' | grep --color=always '[^\/]*$' | nl
 elif [ $# -eq 2 ]
 then
     line=$2
-    vim $(find ~/repos/website/counsyl/product/ -iname "*$1*" | sed -n "$line p")
+    vim $(find ~/repos/website/counsyl/product/ -iname "*$1*" | grep -v .pyc | sed -n "$line p")
 fi
 } 
