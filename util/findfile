@@ -7,7 +7,8 @@ then
     find . -iname "*$1*" | grep --color=always '[^\/]*$' | nl
 elif [ $# -eq 2 ]
 then
-    find $1 -iname "*$2*" | grep --color=always '[^\/]*$' | nl
+    line=$2
+    vim $(find . -iname "*$1*" | sed -n "$line p")
 fi
 } 
 
@@ -15,12 +16,10 @@ fi
 function fz() {
 if [ $# -eq 1 ]
 then
-    find ~/repos/farm2 -iname "*$1*" | grep --color=always '[^\/]*$' | nl
+    find ~/repos/website/counsyl/product/ -iname "*$1*" | grep --color=always '[^\/]*$' | nl
 elif [ $# -eq 2 ]
 then
     line=$2
-    cmd="$(find ~/repos/farm2 -iname "*$1*" | sed -n "$line p")"
-    cmd2="$(dirname $cmd)"
-    cd $cmd2
+    vim $(find ~/repos/website/counsyl/product/ -iname "*$1*" | sed -n "$line p")
 fi
 } 
