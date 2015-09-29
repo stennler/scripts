@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/repos/scripts/util/exportColors
+
 commitMessage="[Backup Script]"
 if [ $# -eq 1 ]
 then
@@ -7,9 +9,9 @@ then
 fi
 
 pushd . > /dev/null
-echo "\033[0;35m--------------------------"
-echo "\033[0;35mBacking up config files..."
-echo "\033[0;35m--------------------------"
+echo "${Purple}--------------------------${Reset}"
+echo "${Purple}Backing up config files...${Reset}"
+echo "${Purple}--------------------------${Reset}"
 cd ~/repos/config
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
@@ -19,9 +21,9 @@ git push origin master
 
 
 echo ""
-echo "\033[0;35m---------------------"
-echo "\033[0;35mBacking up scripts..."
-echo "\033[0;35m---------------------"
+echo "${Purple}---------------------${Reset}"
+echo "${Purple}Backing up scripts...${Reset}"
+echo "${Purple}---------------------${Reset}"
 cd ~/repos/scripts
 git add :/
 git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
@@ -30,6 +32,6 @@ git commit -m "$commitMessage"
 git push origin master
 
 echo ""
-echo "Backup Complete!"
+echo "${Green}Backup Complete!${Reset}"
 echo ""
 popd > /dev/null
