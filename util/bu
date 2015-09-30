@@ -1,7 +1,2 @@
 #!/bin/bash
-if [ "$(uname)" == "Darwin" ]
-then
-    backup.mac "$@"
-else
-    backup.linux "$@" 
-fi
+$(which zsh) backup
