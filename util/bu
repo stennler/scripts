@@ -1,6 +1,8 @@
 #!/bin/bash
-backup.linux "$@"
-if [ ! "$?" -eq "0" ]
+os = $(uname)
+if [ "$os" == "Linux" ]
 then
+    backup.linux "$@"
+else
     backup.mac "$@" 
 fi
