@@ -1,6 +1,5 @@
 #!/bin/bash
-let os = $(uname)
-if [ "$os" == "Linux" ]
+if [ "$(uname)" == "Linux" ]
 then
     backup.linux "$@"
 else
