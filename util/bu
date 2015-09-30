@@ -1,2 +1,2 @@
 #!/bin/bash
-$(which zsh) backup
+$(which zsh) ~/repos/scripts/util/backup
