@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 source ~/repos/scripts/util/exportColors
 
 commitMessage="[Backup Script]"
