@@ -13,10 +13,17 @@ echo "${Cyan}Backing up config files...${Reset}"
 echo "${Cyan}--------------------------${Reset}"
 cd ~/repos/config
 git add :/
-git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
-echo ""
-git commit -m "$commitMessage"
-git push origin master
+
+DIRTY="$(git diff --shortstat 2> /dev/null | tail -n1)$(git diff --cached --shortstat 2> /dev/null | tail -n1)"
+if [ "$DIRTY" "==" "" ]
+then
+    echo "${Green}Everything already backed up.${Reset}"
+else
+    git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
+    echo ""
+    git commit -m "$commitMessage"
+    git push origin master
+fi
 
 
 echo ""
@@ -25,10 +32,18 @@ echo "${Cyan}Backing up scripts...${Reset}"
 echo "${Cyan}---------------------${Reset}"
 cd ~/repos/scripts
 git add :/
-git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
-echo ""
-git commit -m "$commitMessage"
-git push origin master
+
+DIRTY="$(git diff --shortstat 2> /dev/null | tail -n1)$(git diff --cached --shortstat 2> /dev/null | tail -n1)"
+if [ "$DIRTY" "==" "" ]
+then
+    echo "${Green}Everything already backed up.${Reset}"
+else
+    git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
+    echo ""
+    git commit -m "$commitMessage"
+    git push origin master
+fi
+
 
 echo ""
 echo "${Green}Backup Complete!${Reset}"
