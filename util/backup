@@ -38,7 +38,7 @@ if [ "$DIRTY" "==" "" ]
 then
     echo "${Green}Everything already backed up.${Reset}"
 else
-    git --no-pager diff --cached --name-only | awk '{ printf "${Blue}Backing up: %s\n${Reset}", $1 }'
+    git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
     echo ""
     git commit -m "$commitMessage"
     git push origin master
