@@ -1,6 +1,6 @@
 #!/bin/bash
-backup.linux $1
+backup.linux "$@"
 if [ ! "$?" -eq "0" ]
 then
-    backup.mac $1
+    backup.mac "$@" 
 fi
