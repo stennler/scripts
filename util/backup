@@ -48,5 +48,6 @@ fi
 echo ""
 echo "${Green}----------------${Reset}"
 echo "${Green}Backup Complete!${Reset}"
+echo "${Green}----------------${Reset}"
 echo ""
 popd > /dev/null
