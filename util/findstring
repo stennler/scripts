@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Find string in Counsyl repo
+function fs() {
+    pushd . > /dev/null
+    cd ~/repos/website/counsyl/product
+    ag $@
+    popd > /dev/null
+}
+
+function fsf() {
+    pushd . > /dev/null
+    filePath=~/repos/website/counsyl/product
+    cd $filePath
+    if [ $# -eq 1 ]
+    then
+        ag -l $1 | nl
+        popd > /dev/null
+    elif [ $# -eq 2 ]
+    then
+        line=$2
+        fileName=$(ag -l $1 | sed -n "$line p")
+        popd > /dev/null
+        vim $filePath/$fileName
+    fi
+}
+
