@@ -1,9 +1,24 @@
-#!/bin/python
-
 import  smtplib
+import getpass
 
+# Config Parameters
+email = "zFleischman@gmail.com"
+phone = "4156968432"
+phoneCarrierDomain = "vtext.com"
+phoneEmailAddress = phone + "@" + phoneCarrierDomain
+
+# Get user input
+password = getpass.getpass("Enter password for \"" + email + "\": ")
+textMessage = raw_input("Enter text message: ")
+
+# Setup the smtplib to use gmail's smtp server and the given login info.
 server = smtplib.SMTP( "smtp.gmail.com", 587 )
 server.starttls()
-server.login( "zfleischman@gmail.com", "PASSWORD" )
+server.login(email, password)
 
-server.sendmail( 'zfleischman@gmail.com', '4156968432@vtext.com', 'Dev4 is back online' )
+# Send an email to the phone number at the given domain.
+print ("")
+print ("Sending the text message \"" + textMessage + "\" to " +
+        phoneEmailAddress + "...")
+server.sendmail(email, phoneEmailAddress, textMessage)
+print ("Sent!")
