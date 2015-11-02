@@ -4,7 +4,12 @@
 function fs() {
     pushd . > /dev/null
     cd ~/repos/website/counsyl/product
-    ag $@
+    if [ $# -eq 1 ]
+    then
+        ag "$1"
+    else
+        ag $@
+    fi
     popd > /dev/null
 }
 
