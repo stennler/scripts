@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~/nfs-share/website/counsyl/product
+ag "def $1.*\(.*$"
+cd - > /dev/null

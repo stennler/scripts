@@ -1,0 +1,2 @@
+#!/bin/bash
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.test_views.test_order.test_flow.test_new_order_flow:TestClinicalInformationStep.test_link_profile_only_with_same_account counsyl.product.my.tests.test_views.test_order.test_flow.test_new_order_flow:TestClinicalInformationStep.test_link_profile_with_user_not_logged_in counsyl.product.my.tests.test_views.test_order.test_flow.test_new_order_flow:TestClinicalInformationStep.test_link_profile_with_different_account
