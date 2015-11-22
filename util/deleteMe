@@ -2,4 +2,9 @@
 pushd . > /dev/null
 cd ~/repos/RandomPythonProjects/ScrabbleSolver
 python scrabble.py $1
+sdf
+,sdlj
+f
 popd > /dev/null
+sdlfkj
+sdlfkjsdlf
