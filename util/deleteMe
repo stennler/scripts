@@ -1,5 +1,7 @@
 #!/bin/sh
 pushd . > /dev/null
 cd ~/repos/RandomPythonProjects/ScrabbleSolver
-python scrabble.py $1
 popd > /dev/null
+sd;lfkjs
+
+sldfjlsd
