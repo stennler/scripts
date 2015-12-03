@@ -1,5 +1,5 @@
 #!/bin/bash
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture 
 
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.ordering.conversion.tests.test_conversions:LinkedProfileConversionTest.test_linked_profile_converted_with_no_account
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.ordering.conversion.tests.test_conversions:LinkedProfileConversionTest
 
