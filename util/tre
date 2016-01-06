@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Print the current PWD minus full path
+basename `pwd`
+
+# Calculate how many total files there are not including  *.pyc files.
+export TREE_FILE_COUNT_TOTAL=`tree | tail -n 1 | sed 's/^.*directories, \([0-9]*\) files$/\1/g'`
+export TREE_PYC_FILE_COUNT=`tree | grep "\.pyc" | wc -l`
+export TREE_NO_PYC_FILE_COUNT=`echo $TREE_FILE_COUNT_TOTAL-$TREE_PYC_FILE_COUNT | bc`
+
+# Display the tree minus the *.pyc files and the initial '.' and replace the file count with the calculated file count.
+tree | grep -v "^\.$" | grep -v "\.pyc" | sed 's/'"$TREE_FILE_COUNT_TOTAL"' files/'"$TREE_NO_PYC_FILE_COUNT"' files/g'
+
