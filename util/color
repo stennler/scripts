@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# NOTE: If using colors inside a script, it needs to be /bin/sh
+
 # Export the color variables if they aren't already
 source ~/repos/scripts/util/exportColors
 

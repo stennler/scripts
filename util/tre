@@ -1,7 +1,12 @@
-#!/bin/bash
+#!/bin/sh
+
+# Import colors
+source ~/repos/scripts/util/exportColors
 
 # Print the current PWD minus full path
-basename `pwd`
+export TREE_PWD=`pwd`
+export TREE_BASENAME=`basename $TREE_PWD`
+echo "${BBlue}$TREE_BASENAME${Reset}"
 
 # Calculate how many total files there are not including  *.pyc files.
 export TREE_FILE_COUNT_TOTAL=`tree | tail -n 1 | sed 's/^.*directories, \([0-9]*\) files$/\1/g'`
