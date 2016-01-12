@@ -1,3 +1,7 @@
+import inspect
+
+import zutil
+
 # Importing other python packages to wrap in this script.
 import explore as zExplore
 import history as zHistory
@@ -5,8 +9,9 @@ import history as zHistory
 
 def import_all(import_dict):
     """This will add all the functions in zutil to the dictionary arg."""
-    import_dict['h'] = h
-    import_dict['explore'] = explore
+    for name, func in inspect.getmembers(zutil, inspect.isfunction):
+        if name != 'import_all':
+            import_dict[name] = func
 
 
 def h(max_history=25):
