@@ -12,6 +12,7 @@ echo "${Cyan}--------------------------${Reset}"
 echo "${Cyan}Backing up config files...${Reset}"
 echo "${Cyan}--------------------------${Reset}"
 cd ~/repos/config
+find . -name "*.pyc" -type f -delete
 git add :/
 
 DIRTY="$(git diff --shortstat 2> /dev/null | tail -n1)$(git diff --cached --shortstat 2> /dev/null | tail -n1)"
@@ -31,6 +32,7 @@ echo "${Cyan}---------------------${Reset}"
 echo "${Cyan}Backing up scripts...${Reset}"
 echo "${Cyan}---------------------${Reset}"
 cd ~/repos/scripts
+find . -name "*.pyc" -type f -delete
 git add :/
 
 DIRTY="$(git diff --shortstat 2> /dev/null | tail -n1)$(git diff --cached --shortstat 2> /dev/null | tail -n1)"
