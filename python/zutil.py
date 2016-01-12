@@ -19,12 +19,13 @@ def zlist():
     members = inspect.getmembers(zutil, inspect.isfunction)
     members.sort()
     for name, func in members:
-        print("-"*(1+len(name)))
-        print("%s:" % name)
-        print("-"*(1+len(name)))
-        print(func.__doc__)
-        print("")
-        print("")
+        if name != 'import_all':
+            print("-"*(1+len(name)))
+            print("%s:" % name)
+            print("-"*(1+len(name)))
+            print(func.__doc__)
+            print("")
+            print("")
 
 
 def h(max_history=25):
