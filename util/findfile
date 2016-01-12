@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Global find file
-function fff() {
+function ff() {
 if [ $# -eq 1 ]
 then
     find . -iname "*$1*" | grep --color=always '[^\/]*$' | nl
@@ -13,7 +13,7 @@ fi
 } 
 
 # Find file in Counsyl repo
-function ff() {
+function fff() {
 if [ $# -eq 1 ]
 then
     find ~/repos/website/counsyl/product/ -iname "*$1*" | grep -v .pyc | sed -e 's/\/home\/zfleischman\/repos\/website\/counsyl\/product//' | grep --color=always '[^\/]*$' | nl
