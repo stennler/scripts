@@ -1,4 +1,15 @@
 #!/bin/bash
 
 # Wrapper for the zutil.explore python function to explore a python package.
-python -c "import zutil;zutil.explore('$1')"
+# Use an option -a, --all, -s, --show, whatever. If there's 2 args, the 2nd
+# is the package and it shows the classes and functions as well as the inner
+# packages.
+if [ $# -eq 1 ]
+    then
+        python -c "import zutil;zutil.explore('$1')"
+fi
+if [ $# -eq 2 ]
+    then
+        python -c "import zutil;zutil.explore('$2', '', True)"
+fi
+
