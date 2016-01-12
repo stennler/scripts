@@ -3,6 +3,12 @@ import explore as zExplore
 import history as zHistory
 
 
+def import_all(import_dict):
+    """This will add all the functions in zutil to the dictionary arg."""
+    import_dict['h'] = h
+    import_dict['explore'] = explore
+
+
 def h(max_history=25):
     """Prints the history up to a certain max (max is optional)"""
     zHistory.h(max_history)
