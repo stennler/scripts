@@ -12,7 +12,7 @@ def h(max_history=0):
         print(readline.get_history_item(i + 1))
 
 
-def explore(package_name, offset="", show_classes_and_functions=False):
+def explore(package_name, show_classes_and_functions=False, offset=""):
     """Lists modules and functions available for a package"""
     try:
         package = __import__(package_name, fromlist="dummy")
@@ -20,13 +20,13 @@ def explore(package_name, offset="", show_classes_and_functions=False):
             full_name = package_name + "." + mod_name
             print(offset + full_name)
             if ispkg:
-                explore(full_name, offset + "  ")
+                explore(full_name, show_classes_and_functions, offset + "  ")
             else:
                 if show_classes_and_functions:
                     explore_classes(full_name, offset + "  ")
                     explore_functions(full_name, offset + "  ")
     except AttributeError:
-        print (package_name)
+        print (offset + package_name)
         if show_classes_and_functions:
             explore_classes(package_name, offset + "  ")
             explore_functions(package_name, offset + "  ")
@@ -41,10 +41,7 @@ def explore_functions(package_name, offset=""):
         for name in dir(package):
             obj = getattr(package, name)
             if inspect.isfunction(obj):
-                print(offset + "[f] " + obj.__name__)
-    except AttributeError:
-        explore_classes(package_name, offset + "  ")
-        explore_functions(package_name, offset + "  ")
+                print(offset + "F - " + obj.__name__)
     except Exception:  # catch *all* exceptions
         e = sys.exc_info()[0]
         print (offset + "Error: Couldn't import module %s - %s" % (package_name, e))  # nopep8
@@ -56,10 +53,7 @@ def explore_classes(package_name, offset=""):
         for name in dir(package):
             obj = getattr(package, name)
             if inspect.isclass(obj):
-                print(offset + "[c] " + obj.__name__)
-    except AttributeError:
-        explore_classes(package_name, offset + "  ")
-        explore_functions(package_name, offset + "  ")
+                print(offset + "C - " + obj.__name__)
     except Exception:  # catch *all* exceptions
         e = sys.exc_info()[0]
         print (offset + "Error: Couldn't import module %s - %s" % (package_name, e))  # nopep8

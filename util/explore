@@ -10,6 +10,6 @@ if [ $# -eq 1 ]
 fi
 if [ $# -eq 2 ]
     then
-        python -c "import zutil;zutil.explore('$2', '', True)"
+        python -c "import zutil;zutil.explore('$2', True)"
 fi
 
