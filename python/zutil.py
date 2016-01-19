@@ -3,6 +3,7 @@ import inspect
 import zutil
 
 # Importing other python packages to wrap in this script.
+import counsyl_utils as zCounsyl_utils
 import explore as zExplore
 import history as zHistory
 
@@ -12,6 +13,10 @@ def import_all(import_dict):
     for name, func in inspect.getmembers(zutil, inspect.isfunction):
         if name != 'import_all':
             import_dict[name] = func
+
+
+def import_counsyl_utils():
+    zCounsyl_utils.import_counsyl_utils()
 
 
 def zlist():
