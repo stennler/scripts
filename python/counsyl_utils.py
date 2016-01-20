@@ -11,15 +11,15 @@ def show_profile(cp=None):
 
     if cp is None:
         max_idx = 10
-        all_cps = CustomerProfile.objects.all()
+        all_cps = CustomerProfile.objects.all().reverse()
         for i in range(min(max_idx, len(all_cps))):
             print ("----CustomerProfile[%d]----" % i)
             show_profile(all_cps[i])
             print ("")
-        return CustomerProfile.objects.all()
+        return CustomerProfile.objects.all().reverse()
 
     if isinstance(cp, int):
-        return show_profile(CustomerProfile.objects.all()[cp])
+        return show_profile(CustomerProfile.objects.all().reverse()[cp])
 
     print ("Primary Key: \t" + str(cp.pk))
 
