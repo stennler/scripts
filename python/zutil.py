@@ -16,6 +16,7 @@ def import_all(import_dict):
 
 
 def import_counsyl_utils():
+    """Imports all the typical counsyl based packages"""
     zCounsyl_utils.import_counsyl_utils()
 
 
@@ -25,9 +26,10 @@ def zlist():
     members.sort()
     for name, func in members:
         if name != 'import_all':
-            print("-"*(1+len(name)))
+            num_hypens = max(5, 1+len(name))
+            print("-"*num_hypens)
             print("%s:" % name)
-            print("-"*(1+len(name)))
+            print("-"*num_hypens)
             print(func.__doc__)
             print("")
             print("")
