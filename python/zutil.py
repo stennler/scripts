@@ -15,9 +15,14 @@ def import_all(import_dict):
             import_dict[name] = func
 
 
-def import_counsyl_utils():
-    """Imports all the typical counsyl based packages"""
-    zCounsyl_utils.import_counsyl_utils()
+def sp(cp=None):
+    """Dumps a human readable version of the CustomerProfile object.
+
+       No params: Dump first 10 CustomerProfiles. Returns CustomerProfile.objects.all()  # nopep8
+       First Param is integer: Dump the 'x'th CustomerProfile.
+       First Param is a Customer Profile Object: Dump it.
+    """
+    return zCounsyl_utils.show_profile(cp)
 
 
 def zlist():
