@@ -22,7 +22,7 @@ then
 else
     git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
     echo ""
-    git commit -m "$commitMessage"
+    git commit --author="Zack Fleischman <zFleischman@gmail.com>" -m "$commitMessage"
     git push origin master
 fi
 
@@ -42,7 +42,7 @@ then
 else
     git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
     echo ""
-    git commit -m "$commitMessage"
+    git commit --author="Zack Fleischman <zFleischman@gmail.com>" -m "$commitMessage"
     git push origin master
 fi
 
