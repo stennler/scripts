@@ -1,64 +1,111 @@
 from counsyl.product.my.models import CustomerProfile
+from prettytable import PrettyTable
 
 
-def show_profile(cp=None):
-    """Dumps a human readable version of the CustomerProfile object.
+def get_profiles():
+    """Returns a QuerySet of all the CustomerProfiles sorted by create_date"""
+    return CustomerProfile.objects.all().order_by('create_date')
 
-       No params: Dump first 10 CustomerProfiles. Returns CustomerProfile.objects.all()  # nopep8
-       First Param is integer: Dump the 'x'th CustomerProfile.
-       First Param is a Customer Profile Object: Dump it.
-    """
 
-    if cp is None:
-        max_idx = 10
-        all_cps = CustomerProfile.objects.all().reverse()
-        for i in range(min(max_idx, len(all_cps))):
-            print ("----CustomerProfile[%d]----" % i)
-            show_profile(all_cps[i])
-            print ("")
-        return CustomerProfile.objects.all().reverse()
+def get_cp_attributes(cp):
+    """Returns a dictionary of string representations of CustomerProfile attributes"""   # nopep8
 
-    if isinstance(cp, int):
-        return show_profile(CustomerProfile.objects.all().reverse()[cp])
+    if not isinstance(cp, CustomerProfile):
+        raise TypeError("Not a Customer Profile: %s" % str(cp))
 
-    print ("Primary Key: \t" + str(cp.pk))
+    # Set Defaults
+    atts = {
+        'pk': '[No PK]',
+        'name': '[No Name]',
+        'gender': '[No Gender]',
+        'email': '[No Email]',
+        'external_id': '[No External ID]',
+        'barcode': '[No Barcode]',
+        'product': '[No Product]',
+        'disease_panel': '[No Disease Panel]',
+        'price': '[No Price]',
+        'state': '[No State]',
+        }
 
-    name = "[No Name]"
-    gender = "[No Gender]"
+    atts['pk'] = cp.pk
+    atts['external_id'] = cp.external_id
     if cp.person:
         if cp.person.fullname:
-            name = cp.person.fullname
+            atts['name'] = cp.person.fullname
         if cp.person.gender:
-            gender = "Female" if str(cp.person.gender) == "F" else "Male"
-
-    email = "[No Email]"
-    if cp.account and cp.account.email:
-        email = cp.account.email
-
-    barcode = "[No Barcode]"
-    product = "[No Product]"
-    disease_panel = "[No Disease Panel]"
-    price = "[No Price]"
-    state = "[No State]"
+            atts['gender'] = "Female" if str(cp.person.gender) == "F" else "Male"  # nopep8
+    if cp.account:
+        if cp.account.email:
+            atts['email'] = cp.account.email
     if cp.order:
         if cp.order.barcode:
-            barcode = cp.order.barcode
+            atts['barcode'] = cp.order.barcode
         if cp.order.product:
-            product = cp.order.product
+            atts['product'] = cp.order.product
         if cp.order.disease_panel:
-            disease_panel = cp.order.disease_panel
+            atts['disease_panel'] = cp.order.disease_panel
         if cp.order.total:
-            price = cp.order.total
+            atts['price'] = cp.order.total
         if cp.order.state:
-            state = cp.order.state
+            atts['state'] = cp.order.state
+    return atts
 
-    print ("Name:\t\t" + name)
-    print ("Email:\t\t" + email)
-    print ("Gender:\t\t" + gender)
-    print ("External Id:\t" + cp.external_id)
-    print ("Barcode:\t" + str(barcode))
-    print ("Product:\t" + str(product))
-    print ("Disease Panel:\t" + str(disease_panel))
-    print ("Price:\t\t" + str(price))
-    print ("State:\t\t" + str(state))
+
+def show_profiles(short=False):
+    """Dumps and returns all CustomerProfiles - short option dumps on one line"""  # nopep8
+    all_cps = get_profiles()
+    if short:
+        t = PrettyTable(['pk', 'Name', 'Email'])
+        for cp in all_cps:
+            atts = get_cp_attributes(cp)
+            t.add_row([atts['pk'], atts['name'], atts['email']])
+        print (t)
+    else:
+        for cp in all_cps:
+            show_profile(cp)
+    return all_cps
+
+
+def show_profile(cp=None, short=False):
+    """Dumps and returns a human readable version of the CustomerProfile object
+
+       No params: Dumps and returns all CustomerProfiles as a QuerySet.
+       First Param is integer: Dump and return the 'x'th CustomerProfile.
+       First Param is a Customer Profile Object: Dump and return it.
+       short kwarg dumps all profiles on one line.
+    """
+
+    all_cps = get_profiles()
+
+    if cp is None:
+        return show_profiles(short)
+    if isinstance(cp, int):
+        return show_profile(all_cps[cp-1])
+
+    labels = ['Name',
+              'Email',
+              'Gender',
+              'External ID',
+              'Barcode',
+              'Product',
+              'Disease Panel',
+              'Price',
+              'State']
+    atts = get_cp_attributes(cp)
+    atts_column = [atts['name'],
+                   atts['email'],
+                   atts['gender'],
+                   atts['external_id'],
+                   atts['barcode'],
+                   atts['product'],
+                   atts['disease_panel'],
+                   atts['price'],
+                   atts['state']]
+
+    t = PrettyTable()
+    t.add_column("#%s" % atts['pk'], labels)
+    t.add_column("Customer Profile Data", atts_column)
+    t.align = 'l'
+    print(t)
+    print("")
     return cp

@@ -15,18 +15,24 @@ def import_all(import_dict):
             import_dict[name] = func
 
 
-def sp(cp=None):
-    """Dumps a human readable version of the CustomerProfile object.
+def sp(cp=None, short=False):
+    """Dumps and returns a human readable version of the CustomerProfile object
 
-       No params: Dump first 10 CustomerProfiles. Returns CustomerProfile.objects.all()  # nopep8
-       First Param is integer: Dump the 'x'th CustomerProfile.
-       First Param is a Customer Profile Object: Dump it.
+       No params: Dumps and returns all CustomerProfiles as a QuerySet.
+       First Param is integer: Dump and return the 'x'th CustomerProfile.
+       First Param is a Customer Profile Object: Dump and return it.
+       short kwarg dumps all profiles on one line.
     """
-    return zCounsyl_utils.show_profile(cp)
+    return zCounsyl_utils.show_profile(cp, short)
+
+
+def sps(cp=None):
+    """Shortcut for sp(short=True)"""
+    return sp(cp, True)
 
 
 def zlist():
-    """Lists all the zutil functions"""
+    """Lists all the zutil functions and their docs"""
     members = inspect.getmembers(zutil, inspect.isfunction)
     members.sort()
     for name, func in members:
@@ -37,7 +43,19 @@ def zlist():
             print("-"*num_hypens)
             print(func.__doc__)
             print("")
-            print("")
+
+
+def zls(verbose=None):
+    """Lists all the zutil functions (one line each)"""
+    if verbose:
+        return zlist()
+    members = inspect.getmembers(zutil, inspect.isfunction)
+    members.sort()
+    i = 1
+    for name, func in members:
+        if name != 'import_all':
+            print("{}:\t{}\t\t-{}".format(i, name, func.__doc__.split('\n')[0]))  # nopep8
+            i += 1
 
 
 def h(max_history=25):
@@ -48,6 +66,6 @@ def h(max_history=25):
 def explore(package_name, show_classes_and_functions=False, offset=""):
     """Recursively lists modules in a package.
 
-If True is passed as 2nd arg it will list classes and functions too.
-"""
+       If True is passed as 2nd arg it will list classes and functions too.
+    """
     zExplore.explore(package_name, show_classes_and_functions, offset)
