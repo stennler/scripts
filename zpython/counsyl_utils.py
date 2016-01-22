@@ -2,6 +2,19 @@ from counsyl.product.my.models import CustomerProfile
 from prettytable import PrettyTable
 
 
+def delete_profile(pk):
+    """Delete's the CustomerProfile object with the given primary key (or list of keys)"""  # nopep8
+    if isinstance(pk, int):
+        print ("Deleting profile: pk=%d" % pk)
+        CustomerProfile.objects.filter(pk=pk).delete()
+    elif isinstance(pk, list):
+        for key in pk:
+            print ("Deleting profile: pk=%d" % key)
+            CustomerProfile.objects.filter(pk=key).delete()
+    else:
+        raise TypeError
+
+
 def get_profiles():
     """Returns a QuerySet of all the CustomerProfiles sorted by create_date"""
     return CustomerProfile.objects.all().order_by('create_date')
@@ -58,8 +71,8 @@ def show_profiles(short=False):
     all_cps = get_profiles()
     if short:
 
-        labels = ['pk', 'Name', 'Email', 'Account']  # Label
-        attrib = ['pk', 'name', 'email', 'account']  # Key
+        labels = ['pk', 'Name', 'Email', 'Gender', 'Account']  # Label
+        attrib = ['pk', 'name', 'email', 'gender', 'account']  # Key
 
         t = PrettyTable(labels)
         t.align = 'l'

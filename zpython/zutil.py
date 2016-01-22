@@ -31,6 +31,17 @@ def sps(cp=None):
     return sp(cp, True)
 
 
+def dp(pk):
+    """Delete's the CustomerProfile object with the given primary key (or list of keys)"""  # nopep8
+    zCounsyl_utils.delete_profile(pk)
+    return sps()
+
+
+def loop(iters, f, *args, **kwargs):
+    """Execute the passed in function iters times"""
+    return [f(*args, **kwargs) for x in range(iters)]
+
+
 def zlist():
     """Lists all the zutil functions and their docs"""
     members = inspect.getmembers(zutil, inspect.isfunction)
