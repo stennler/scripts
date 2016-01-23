@@ -15,28 +15,6 @@ def import_all(import_dict):
             import_dict[name] = func
 
 
-def sp(cp=None, short=False):
-    """Dumps and returns a human readable version of the CustomerProfile object
-
-       No params: Dumps and returns all CustomerProfiles as a QuerySet.
-       First Param is integer: Dump and return the 'x'th CustomerProfile.
-       First Param is a Customer Profile Object: Dump and return it.
-       short kwarg dumps all profiles on one line.
-    """
-    return zCounsyl_utils.show_profile(cp, short)
-
-
-def sps(cp=None):
-    """Shortcut for sp(short=True)"""
-    return sp(cp, True)
-
-
-def dp(pk):
-    """Delete's the CustomerProfile object with the given primary key (or list of keys)"""  # nopep8
-    zCounsyl_utils.delete_profile(pk)
-    return sps()
-
-
 def loop(iters, f, *args, **kwargs):
     """Execute the passed in function iters times"""
     return [f(*args, **kwargs) for x in range(iters)]
@@ -80,3 +58,31 @@ def explore(package_name, show_classes_and_functions=False, offset=""):
        If True is passed as 2nd arg it will list classes and functions too.
     """
     zExplore.explore(package_name, show_classes_and_functions, offset)
+
+
+####################################
+##### Counsy Related Shortcuts #####
+####################################
+
+
+def sp(cp=None, short=False):
+    """Dumps and returns a human readable version of the CustomerProfile object
+
+       No params: Dumps and returns all CustomerProfiles as a QuerySet.
+       First Param is integer: Dump and return the 'x'th CustomerProfile.
+       First Param is a Customer Profile Object: Dump and return it.
+       short kwarg dumps all profiles on one line.
+    """
+    return zCounsyl_utils.show_profile(cp, short)
+
+
+def sps(cp=None):
+    """Shortcut for sp(short=True)"""
+    return sp(cp, True)
+
+
+def dp(pk):
+    """Delete's the CustomerProfile object with the given primary key (or list of keys)"""  # nopep8
+    zCounsyl_utils.delete_profile(pk)
+    return sps()
+
