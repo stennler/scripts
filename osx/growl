@@ -1,6 +1,7 @@
 #!/bin/bash
 
-title="Process Done!"
+#title="Hey Zack, shit's finished yo"
+title="Sir, I'm finished."
 msg=""
 
 if [ $# -eq 1 ]
