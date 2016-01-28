@@ -1,0 +1,17 @@
+#!/bin/bash
+
+title="Process Done!"
+msg=""
+
+if [ $# -eq 1 ]
+    then
+        title=$1
+fi
+
+if [ $# -eq 2 ]
+    then
+        title=$1
+        msg=$2
+fi
+
+/usr/local/bin/growlnotify -m "$msg" -t "$title"
