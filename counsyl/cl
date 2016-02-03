@@ -1,4 +1,8 @@
 #!/bin/bash
-cd ~/nfs-share/website/counsyl/product
-ag "class $1\(.*$" 
-cd - > /dev/null
+echo ""
+echo "--------Partial Matches----------"
+ag "class .*$1.*\(.*$" ~/repos/zfleischman/models.txt
+echo ""
+echo "--------Exact Matches----------"
+ag "class $1\(.*$" ~/repos/zfleischman/models.txt
+echo ""
