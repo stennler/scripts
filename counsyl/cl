@@ -1,8 +1,16 @@
 #!/bin/bash
+
+classes_cache=~/repos/zfleischman/search_cache/classes.txt
+
+# Generate the cache if necessary
+if [ ! -f $classes_cache ]; then
+    generate_cache_classes
+fi
+
 echo ""
 echo "--------Partial Matches----------"
-ag "class .*$1.*\(.*$" ~/repos/zfleischman/models.txt
+ag "class .*$1.*\(.*$" $classes_cache
 echo ""
 echo "--------Exact Matches----------"
-ag "class $1\(.*$" ~/repos/zfleischman/models.txt
+ag "class $1\(.*$" $classes_cache
 echo ""
