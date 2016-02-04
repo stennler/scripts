@@ -1,5 +1,0 @@
-#!/bin/bash
-#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture 
-
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.housecall.tests.test_views:ViewTests.test_housecall_report_editor_loads_for_linked_profile
-
