@@ -61,7 +61,7 @@ def explore(package_name, show_classes_and_functions=False, offset=""):
 
 
 ####################################
-##### Counsy Related Shortcuts #####
+# Counsy Related Shortcuts
 ####################################
 
 
@@ -85,4 +85,3 @@ def dp(pk):
     """Delete's the CustomerProfile object with the given primary key (or list of keys)"""  # nopep8
     zCounsyl_utils.delete_profile(pk)
     return sps()
-
