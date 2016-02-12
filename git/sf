@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Lists the changed files compared to master
-# Can pass a number as an optional argument and it will diff that particular
-#   file (as mapped to by dms without args) against master.
+# Lists the current changed files against HEAD
+# Can pass a number as an optional argument and it will open that particular
+#   file in vim
 
 if [ $# -eq 0 ]
     then
@@ -12,5 +12,4 @@ elif [ $# -eq 1 ]
         root=$(git rev-parse --show-toplevel)
         file=$(git --no-pager diff --name-status | sed -n $1p | awkc 2)
         vim $root/$file
-   #     git difftool master -- $root/$file
 fi
