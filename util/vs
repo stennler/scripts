@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# Dump the code for any script on the path
-
-echo ""
-cmd="which $1 | xargs cat"
-eval $cmd
-echo ""

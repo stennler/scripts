@@ -1,5 +1,4 @@
 #!/bin/bash
 # ~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture 
 
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.helpdesk.tests.test_merge:TestMergeAccountForm.test_merge_accounts_success_two_existing_requests_1 counsyl.product.helpdesk.tests.test_merge:TestMergeAccountForm.test_merge_accounts_success_existing_request_4 counsyl.product.helpdesk.tests.test_merge:TestMergeAccountForm.test_merge_accounts_success_existing_request_2 counsyl.product.helpdesk.tests.test_merge:TestMergeAccountForm.test_merge_accounts_success_existing_request_1
-
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_cart_conversion:TestFPSAndIPSOrders.test_merge_linked_profile
