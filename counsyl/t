@@ -1,4 +1,8 @@
 #!/bin/bash
 # ~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture 
 
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_cart_conversion:TestFPSAndIPSOrders.test_merge_linked_profile
+# COM-63
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_cart_conversion:TestFPSAndIPSOrders.test_merge_linked_profile counsyl.product.order.tests.test_cart_conversion:TestFPSAndIPSOrders.test_merge_linked_profile_incompatible_merge
+
+# COM-39
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.integration_tests.test_counsyl_complete:TestCounselingRequired.test_cc2_path_results_ready_schedule_flake_schedule_attend
