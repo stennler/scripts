@@ -6,7 +6,11 @@
 
 # COM-39
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.integration_tests.test_counsyl_complete:TestCounselingRequired.test_cc2_path_results_ready_schedule_flake_schedule_attend
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.test_reminders.test_models.test_payloads
 
 # COM-62
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_requisition_pdf_generation:TestGetCounsylCoverSheets.test_partner_fps
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_requisition_pdf_generation
+# ~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_requisition_pdf_generation
+
+# COM-387
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.housecall.tests.test_models
