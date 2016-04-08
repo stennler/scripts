@@ -6,7 +6,7 @@
 
 # COM-39
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.integration_tests.test_counsyl_complete:TestCounselingRequired.test_cc2_path_results_ready_schedule_flake_schedule_attend
-~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.test_reminders.test_models.test_payloads
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.test_reminders.test_models.test_payloads
 
 # COM-62
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.test_requisition_pdf_generation:TestGetCounsylCoverSheets.test_partner_fps
@@ -14,3 +14,18 @@
 
 # COM-387
 #~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.housecall.tests.test_models
+
+# COM-463
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.housecall.tests.test_autolinking:AutoLinkingTests.test_barcode_dob_do_not_autolink_to_canceled_person counsyl.product.helpdesk.tests.test_transition_forms:TestRequiresProviderContactQueue.test_do_not_display_who_will_deliver_results_for_terminated_cc2 counsyl.product.helpdesk.tests.test_transition_forms counsyl.product.my.tests.test_utils.test_activity_log:TestCC2Terminate.test_unresponsive counsyl.product.helpdesk.tests.test_transition_forms counsyl.product.billing.tests.tests:TestCancel.test_cancel_and_reactivate counsyl.product.helpdesk.tests.test_transition_forms counsyl.product.billing.tests.tests:TestCancel.test_cancel_order_with_payments
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.billing.tests.tests:TestCancel.test_cancel_order_with_payments
+
+# COM-495
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.resulting.tests.test_api:TestCreateResultable
+~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.resulting.tests.test_api
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.resulting.tests.test_consistency
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.resulting.tests.test_consistency:TestCounsylCompleteWorkflow.test_no_complete_workflow_different
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.resulting.tests.test_consistency counsyl.product.order.tests.tests:TestCounsylCompleteWorkFlow     counsyl.product.my.tests.test_models.test_models:TestCustomerProfileCreatedSignal.test_signal_sent_when_profile_created
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.order.tests.tests:TestCounsylCompleteWorkFlow.test_cc2_brca_order_is_cc2
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.api.salesforce.tests.tests:TestSalesForceFAQProxy.test_proxy_search_fake_response
+#~/nfs-share/website/counsyl/product/manage.py test --retest --run-all --nologcapture counsyl.product.my.tests.test_models.test_models:TestCustomerProfileCreatedSignal.test_signal_sent_when_profile_created
+
