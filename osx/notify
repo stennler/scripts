@@ -1,0 +1,12 @@
+#!/bin/bash
+
+title="Sir, I'm finished."
+msg=""
+
+if [ $# -eq 1 ]
+    then
+        msg=$1
+fi
+
+terminal-notifier -title "$title" -message "$msg"
+say -v Vicki "$title"
