@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# This will accept a search term for a process (pid or name) either as the 
+# first argument or from stdin and then dump the PID to stdout.
+
+if [ $# -eq 0 ]; then
+    read str
+else
+    str=$1
+fi
+
+ps aux | grep --color=always $str | grep --color=always -v grep | grep --color=always -v pid | awkc 2
+
