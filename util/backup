@@ -1,6 +1,8 @@
 #!/usr/bin/zsh
 source ~/repos/scripts/util/exportColors
 
+AUTHOR="Zack Fleischman <zFleischman@gmail.com>"
+
 commitMessage="[Backup Script]"
 if [ $# -eq 1 ]
 then
@@ -22,7 +24,7 @@ then
 else
     git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
     echo ""
-    git commit --author="Zack Fleischman <zFleischman@gmail.com>" -m "$commitMessage"
+    git commit --author="$AUTHOR" -m "$commitMessage"
     git push origin master
 fi
 
@@ -42,7 +44,7 @@ then
 else
     git --no-pager diff --cached --name-only | awk '{ printf "Backing up: %s\n", $1 }'
     echo ""
-    git commit --author="Zack Fleischman <zFleischman@gmail.com>" -m "$commitMessage"
+    git commit --author="$AUTHOR" -m "$commitMessage"
     git push origin master
 fi
 
