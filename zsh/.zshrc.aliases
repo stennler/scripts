@@ -1,0 +1,58 @@
+# Codecademy
+alias aws-sso='aws-vault exec nonprod -- aws sts get-caller-identity'
+alias dev='yarn run start'
+alias comp='yarn compile -w'
+alias t='yarn run test'
+alias server='bundle exec rails server'
+alias bserver='bundle install && server'
+alias cypress='yarn cypress open'
+alias bspec='bundle exec rspec'
+alias sizes='printf "xs: 480px,\nsm: 768px,\nmd: 1024px,\nlg: 1200px,\nxl: 1440px\n"'
+alias reyarn='rm -rf node_modules && yarn'
+alias dotenv='./script/create_dotfiles.sh'
+
+# General Navigation
+alias gp='cd ~/repos/gaia-project'
+alias code='cd ~/repos/Codecademy'
+alias port='cd ~/repos/portal-app'
+alias cm='cd ~/repos/client-modules'
+alias ss='cd ~/repos/static-sites'
+alias pay='cd ~/repos/payments_service'
+alias cts='cd ~/repos/component-test-setup'
+alias emo='cd ~/repos/emotion'
+
+# Git shortcuts
+alias l1='gitlog -10'
+alias l2='gitlog -20'
+alias l3='gitlog -30'
+alias l4='gitlog -40'
+alias c='git commit -am'
+alias A="git add -A"
+alias f='git fetch'
+alias u='git pull'
+alias co='git checkout'
+alias p='co develop'
+alias reset='git reset --hard HEAD'
+alias soft='git reset --soft HEAD~1'
+alias ll='ls -la'
+alias x='chmod 755'
+alias nb='git checkout -b'
+alias del='git branch -D'
+alias delre='git push origin --delete'
+alias push='git push --set-upstream origin $(current_branch)'
+alias m='git merge'
+alias md='git merge develop'
+alias cmd='c "Merged in develop"'
+alias ce='git commit --allow-empty -m "Empty commit to kick Github"'
+alias diff='git diff'
+alias prune="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+alias b='git branch'
+alias stash='git add -A && git stash'
+alias spop='git stash pop'
+alias unlock='rm .git/index.lock'
+
+#repo visualization
+alias viz='gource --user-image-dir .git/avatar -s 0.5 --key --title "Redpop" -a 0.5 -r 60 --bloom-multiplier 0.25 --bloom-intensity 0.5 --hide filenames' 
+
+#Personal
+alias spot='sh ~/MuteSpotifyAds/NoAdsSpotify.sh'

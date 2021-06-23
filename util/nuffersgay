@@ -1,3 +1,0 @@
-#!/bin/bash
-# Dump the number of instances of "nuffer's gay" found in a file
-cat $1 | grep -i "nuffer's gay" | nl | tail -1 | awkc 1

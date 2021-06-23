@@ -1,5 +1,0 @@
-#!/bin/sh
-
-echo ""
-echo "Stitching this shit up."
-php ~/repos/farm2/Server/game/scripts/stitch_settings.php

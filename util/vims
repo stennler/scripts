@@ -1,3 +1,0 @@
-#!/bin/sh
-# Loads a vim session
-vim -S ~/repos/config/vim_sessions/$1.vim

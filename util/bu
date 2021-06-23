@@ -1,5 +1,0 @@
-#!/bin/bash
-# TODO: Fix backup commit message ($1 does jack shit because it's being sent
-# as a param to the shell and not to backup
-$(which zsh) ~/repos/scripts/util/bp
-$(which zsh) ~/repos/scripts/util/backup $1

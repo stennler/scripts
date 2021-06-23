@@ -1,3 +1,0 @@
-#!/bin/bash
-# Give me permissions to access the folder in the parameter
-sudo chown -R $USER

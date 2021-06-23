@@ -1,5 +1,0 @@
-#!/bin/sh
-pushd . > /dev/null
-cd ~/repos/RandomPythonProjects/Checkers
-python checkers.py
-popd > /dev/null

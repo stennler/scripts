@@ -1,9 +1,0 @@
-#!/bin/sh
-carrot=^
-if [ $# -eq 2 ]
-    then
-        echo "git difftool $2$carrot..$2 -- $1"
-        git difftool $2$carrot..$2 -- $1
-fi
-
-

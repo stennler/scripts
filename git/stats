@@ -1,8 +1,0 @@
-#!/bin/sh
-if [ $# -eq 1 ]
-    then
-        choice=$1
-        git log --stat -1 --color=always $choice 
-fi
-
-

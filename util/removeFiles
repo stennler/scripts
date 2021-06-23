@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# Takes in as an argument a file name containing a filename (full path) on each line and deletes it.
-while read p; do
-    echo "Removing: $p"
-    sudo rm -f $p
-done < $1

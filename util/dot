@@ -1,8 +1,0 @@
-#!/bin/bash
-cd ~/repos/config/scripts
-if [ $(uname) == "Darwin" ]
-then
-    ~/repos/config/scripts/installDotFiles.mac
-else
-    ~/repos/config/scripts/installDotFiles.linux
-fi

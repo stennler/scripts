@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# prssh: SSH into a pr preview.
+
+prnum=$1
+kubectx development-eks
+railsPod=$(aws-vault exec nonprod -- kubectl get pods -n pr-${prnum} | grep rails | tr -s ' ' | cut -d ' ' -f 1)
+aws-vault exec nonprod -- kubectl exec -it -n pr-${prnum} $railsPod -- bash

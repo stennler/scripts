@@ -1,3 +1,0 @@
-#!/bin/sh
-fullPath=$(which $1)
-vim $fullPath

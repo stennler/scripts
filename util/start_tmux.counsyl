@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# Create counsyl tmux session
-source ~/repos/config/tmux_sessions/counsyl.session

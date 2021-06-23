@@ -21,9 +21,9 @@ fi
 
 if [ $# -eq 0 ]
     then
-        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset %C(cyan)- %C(reset)%s %C(yellow)%d%Creset" --abbrev-commit --date=relative --color=always | nl | less
+        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset - %C(reset)%s %Creset%C(yellow)%d%Creset" --abbrev-commit --date=relative --color=always | nl | less
     else
-        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset %C(cyan)- %C(reset)%s %C(yellow)%d%Creset" --abbrev-commit --date=relative $num --color=always $branch | nl
+        git log --pretty=format:"%Cred%h%Creset - %C(bold blue)<%an>%Creset %Cgreen(%cr)%Creset - %C(reset)%s %Creset%C(yellow)%d%Creset" --abbrev-commit --date=relative $num --color=always $branch | nl
 fi
 
 echo "\n"

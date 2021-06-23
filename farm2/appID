@@ -1,3 +1,0 @@
-#!/bin/bash
-# Show my app id
-cat ~/repos/farm2/Server/game/config/users/zFleischman/local.inc.php | sed -n 24p | grep -op ", '.*'" | grep -op "'[0-9]*'" | sed 's/^.\(.*\).$/\1/'

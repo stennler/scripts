@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# gmd: Handles merging the most recent develop back into the current branch.
+
+CURRENT_BRANCH=$(git branch --show-current)
+git checkout develop
+git pull
+git checkout $CURRENT_BRANCH
+git merge develop
