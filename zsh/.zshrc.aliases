@@ -12,14 +12,14 @@ alias reyarn='rm -rf node_modules && yarn'
 alias dotenv='./script/create_dotfiles.sh'
 
 # General Navigation
-alias gp='cd ~/repos/gaia-project'
 alias code='cd ~/repos/Codecademy'
 alias port='cd ~/repos/portal-app'
-alias cm='cd ~/repos/client-modules'
+alias gam='cd ~/repos/gamut'
 alias ss='cd ~/repos/static-sites'
 alias pay='cd ~/repos/payments_service'
 alias cts='cd ~/repos/component-test-setup'
 alias emo='cd ~/repos/emotion'
+alias dn='cd ~/repos/dev-nexus'
 
 # Git shortcuts
 alias l1='gitlog -10'
